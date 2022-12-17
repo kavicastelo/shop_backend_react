@@ -7,6 +7,9 @@ mongoose.set('strictQuery',true);
 require('dotenv').config();
 
 const port = process.env.PORT;
+//====================================================
+const customerRoute = require('./route/customerRouter');
+//====================================================
 
 const app = express();
 app.use(cors());
@@ -17,4 +20,6 @@ mongoose.connect('mongodb://0.0.0.0:27017/shop').then(()=>{
     app.listen(port, ()=>{
         console.log('Server running on port '+port);
     })
-})
+});
+
+app.use('/api/v1/customer',customerRoute);
