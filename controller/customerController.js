@@ -25,7 +25,7 @@ const get = (req, resp) => {
     });
 }
 const update = (req, resp) => {
-    CustomerSchema.findOneAndUpdate({_id:req.body.id},{
+    CustomerSchema.findOneAndUpdate({_id:req.headers.id},{
         $set:{
             name:req.body.name,
             address:req.body.address,
