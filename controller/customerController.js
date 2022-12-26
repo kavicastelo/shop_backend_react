@@ -14,7 +14,7 @@ const save = (req, resp) => {
     });
 }
 const get = (req, resp) => {
-    CustomerSchema.findOne({_id:req.headers.id}).then(result=>{
+    CustomerSchema.findOne({_id:req.query.id}).then(result=>{
         if(result){
             resp.status(200).json({data:result});
         }else{
